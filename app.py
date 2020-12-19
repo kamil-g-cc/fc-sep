@@ -34,6 +34,11 @@ def login():
     elif request.method == 'GET':
         return render_template("login.html")
 
+@app.route('/logout')
+def logout():
+    session.pop('user_name')
+    return redirect(url_for("index"))
+
 
 if __name__ == '__main__':
     app.run()
