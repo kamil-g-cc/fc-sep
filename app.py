@@ -16,11 +16,14 @@ def index():
     session['first_time'] = 'yes'
     user_name = ''
     is_pierwszy_raz = request.cookies.get('pierwszy_raz')
+    is_drugi_raz = request.cookies.get('drugi_raz')
     if is_pierwszy_raz == "moje pierwsze ciasteczko ever!":
         print("bylem tutaj, tonny halik")
+    if is_drugi_raz:
+        print("drugi", is_drugi_raz)
 
     resp = make_response(render_template("index.html", user_name=user_name))
-    resp.set_cookie('pierwszy_raz', 'moje pierwsze ciasteczko ever!')
+    resp.set_cookie(key='drugi_raz', value='moje pierwsze ciasteczko ever!', max_age=5)
     if 'user_name' in session:
         user_name = session['user_name']
     return resp
