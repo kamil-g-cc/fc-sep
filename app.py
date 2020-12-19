@@ -1,6 +1,6 @@
 import data
 import bcrypt
-from flask import Flask, session, redirect, render_template, url_for, request
+from flask import Flask, session, redirect, render_template, url_for, request, make_response
 
 # put your code here
 
@@ -15,9 +15,15 @@ HASH_PW = b'$2b$12$hcQZVUIYaImyxGF8oiUXEO3oqGxh8//XSSkKncOm17IoFO8fu0pbe'
 def index():
     session['first_time'] = 'yes'
     user_name = ''
+    is_pierwszy_raz = request.cookies.get('pierwszy_raz')
+    if is_pierwszy_raz == "moje pierwsze ciasteczko ever!":
+        print("bylem tutaj, tonny halik")
+
+    resp = make_response(render_template("index.html", user_name=user_name))
+    resp.set_cookie('pierwszy_raz', 'moje pierwsze ciasteczko ever!')
     if 'user_name' in session:
         user_name = session['user_name']
-    return render_template("index.html", user_name=user_name)
+    return resp
 
 
 @app.route('/login', methods=['GET', 'POST'])
