@@ -13,7 +13,6 @@ HASH_PW = b'$2b$12$hcQZVUIYaImyxGF8oiUXEO3oqGxh8//XSSkKncOm17IoFO8fu0pbe'
 
 @app.route('/')
 def index():
-    session['first_time'] = 'yes'
     user_name = ''
     is_pierwszy_raz = request.cookies.get('pierwszy_raz')
     is_drugi_raz = request.cookies.get('drugi_raz')
