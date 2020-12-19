@@ -9,6 +9,10 @@ app = Flask(__name__)
 app.secret_key = bcrypt.gensalt()
 
 
+LOGIN_EMAIL = 'kaszczak.jaroslaw@outlook.com'
+PASSWORD = 'qwerty'
+
+
 @app.route('/')
 def index():
     session['first_time'] = 'tak'
