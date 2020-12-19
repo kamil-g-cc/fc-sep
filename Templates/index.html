@@ -5,6 +5,9 @@
     <title>Title</title>
 </head>
 <body>
+{% if user_name %}
+    <h1>Welcome {{ user_name }}</h1>
+{% endif %}
     <a href="{{ url_for('login') }}">Login</a>
 </body>
 </html>
