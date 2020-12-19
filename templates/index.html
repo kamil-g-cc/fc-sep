@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+{% if user_name %}
+<h1>Welcome {{ user_name }}</h1>
+{% endif %}
+<a href="{{ url_for("login") }}">Log in</a>
+</body>
+</html>
