@@ -14,6 +14,7 @@ HASH_PW = b'$2b$12$s8Qmmgn4m6eDXuq1KTdgI.Y2yF6kfoXKBl9xk0C6Bj7Z7FxSTkEsG'
 @app.route('/')
 def index():
     session['first_time'] = 'tak'
+    user_name = ''
     if 'user_name' in session:
         user_name = session['user_name']
     return render_template('index.html', user_name=user_name)
